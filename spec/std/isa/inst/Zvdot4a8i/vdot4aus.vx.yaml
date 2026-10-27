@@ -9,7 +9,7 @@ name: vdot4aus.vx
 long_name: Vector 4-element unsigned-signed dot-product accumulate (vector-scalar)
 description: |
   Computes the dot product of four unsigned 8-bit elements from `vs2` and four
-  signed 8-bit elements packed/replicated from the scalar `rs1`, sums the
+  signed 8-bit elements packed/replicated from the scalar `xs1`, sums the
   four products, and accumulates the signed 32-bit result into the
   corresponding 32-bit element of `vd`.
 
@@ -17,12 +17,12 @@ description: |
   unsigned-vs2/signed-vs1 vector-vector combination is not separately
   encoded, since operand order can simply be swapped to use
   `vdot4asu.vv` instead. That swap isn't possible for the vector-scalar
-  form, since the scalar operand's signedness is fixed to `rs1`'s position,
+  form, since the scalar operand's signedness is fixed to `xs1`'s position,
   so this variant is provided explicitly.
 definedBy:
   extension:
     name: Zvdot4a8i
-assembly: vd, vs2, rs1, vm
+assembly: vd, vs2, xs1, vm
 encoding:
   match: 101110-----------110-----1010111
   variables:
@@ -30,7 +30,7 @@ encoding:
       location: 25-25
     - name: vs2
       location: 24-20
-    - name: rs1
+    - name: xs1
       location: 19-15
     - name: vd
       location: 11-7
